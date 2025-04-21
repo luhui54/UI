@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品详情 - 旗袍App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            background-color: #f8f8f8;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            -webkit-overflow-scrolling: touch;
+        }
+        /* 隐藏滚动条但保持滚动功能 */
+        body::-webkit-scrollbar {
+            display: none;
+        }
+        /* 兼容 Firefox */
+        body {
+            scrollbar-width: none;
+        }
+        /* 兼容 IE */
+        body {
+            -ms-overflow-style: none;
+        }
+        .status-bar {
+            height: 44px;
+            background-color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 16px;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+        .content {
+            padding-bottom: 60px;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        .content::-webkit-scrollbar {
+            display: none;
+        }
+        .product-image {
+            width: 100%;
+            height: auto;
+            background-color: #f8f8f8;
+            position: relative;
+        }
+        .product-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .product-info {
+            background: #fff;
+            padding: 16px;
+            margin-bottom: 8px;
+        }
+        .product-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 8px;
+        }
+        .product-price {
+            font-size: 24px;
+            color: #e83e8c;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        .product-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+        .tag {
+            padding: 4px 8px;
+            background: #f0f0f0;
+            border-radius: 4px;
+            font-size: 12px;
+            color: #666;
+        }
+        .section-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 12px;
+        }
+        .detail-section {
+            background: #fff;
+            padding: 16px;
+            margin-bottom: 8px;
+        }
+        .detail-item {
+            display: flex;
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .detail-item:last-child {
+            border-bottom: none;
+        }
+        .detail-label {
+            width: 80px;
+            color: #666;
+        }
+        .detail-value {
+            flex: 1;
+            color: #333;
+        }
+        .action-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            padding: 0 16px;
+            box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
+        }
+        .action-button {
+            flex: 1;
+            height: 40px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin: 0 8px;
+        }
+        .action-button.cart {
+            background: #fff;
+            color: #e83e8c;
+            border: 1px solid #e83e8c;
+        }
+        .action-button.buy {
+            background: #e83e8c;
+            color: #fff;
+        }
+        .nav-back {
+            position: fixed;
+            top: 56px;
+            left: 16px;
+            width: 32px;
+            height: 32px;
+            background: rgba(0,0,0,0.5);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            z-index: 100;
+        }
+    </style>
+</head>
+<body>
+    <!-- iOS状态栏 -->
+    <div class="status-bar">
+        <div>9:41</div>
+        <div class="flex space-x-2">
+            <i class="fas fa-signal"></i>
+            <i class="fas fa-wifi"></i>
+            <i class="fas fa-battery-full"></i>
+        </div>
+    </div>
+
+    <!-- 主要内容区域 -->
+    <div class="content">
+        <!-- 商品图片 -->
+        <div class="product-image">
+            <img src="images/商店1.jpg" alt="传统刺绣旗袍">
+        </div>
+        <div class="nav-back">
+            <i class="fas fa-arrow-left"></i>
+        </div>
+
+        <!-- 商品基本信息 -->
+        <div class="product-info">
+            <div class="product-title">传统刺绣旗袍</div>
+            <div class="product-price">¥1280</div>
+            <div class="product-tags">
+                <div class="tag">手工刺绣</div>
+                <div class="tag">真丝面料</div>
+                <div class="tag">可定制</div>
+            </div>
+        </div>
+
+        <!-- 商品详情 -->
+        <div class="detail-section">
+            <div class="section-title">商品详情</div>
+            <div class="detail-item">
+                <div class="detail-label">材质</div>
+                <div class="detail-value">100%真丝</div>
+            </div>
+            <div class="detail-item">
+                <div class="detail-label">工艺</div>
+                <div class="detail-value">手工刺绣</div>
+            </div>
+            <div class="detail-item">
+                <div class="detail-label">尺码</div>
+                <div class="detail-value">S/M/L/XL</div>
+            </div>
+            <div class="detail-item">
+                <div class="detail-label">颜色</div>
+                <div class="detail-value">红色/蓝色/黑色</div>
+            </div>
+        </div>
+
+        <!-- 商品描述 -->
+        <div class="detail-section">
+            <div class="section-title">商品描述</div>
+            <div style="color: #666; line-height: 1.6;">
+                这款传统刺绣旗袍采用100%真丝面料，由经验丰富的师傅手工刺绣而成。精致的刺绣图案展现了传统工艺的魅力，修身的设计凸显女性优雅曲线。适合各种正式场合穿着，展现东方女性的独特魅力。
+            </div>
+        </div>
+
+        <!-- 底部操作栏 -->
+        <div class="action-bar">
+            <div class="action-button cart">
+                <i class="fas fa-shopping-cart mr-2"></i>
+                加入购物车
+            </div>
+            <div class="action-button buy">
+                立即购买
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

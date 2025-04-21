@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>社区 - 旗袍App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            background-color: #f8f8f8;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+        .status-bar {
+            height: 44px;
+            background-color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 16px;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+        .tab-bar {
+            height: 83px;
+            background-color: #fff;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            border-top: 1px solid #eee;
+        }
+        .tab-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #666;
+        }
+        .tab-item.active {
+            color: #e83e8c;
+        }
+        .tab-item i {
+            font-size: 24px;
+            margin-bottom: 4px;
+        }
+        .tab-item span {
+            font-size: 12px;
+        }
+        .content {
+            padding-bottom: 83px;
+        }
+        .category-tabs {
+            display: flex;
+            overflow-x: auto;
+            padding: 16px;
+            background: #fff;
+            position: sticky;
+            top: 44px;
+            z-index: 40;
+        }
+        .category-tab {
+            padding: 8px 16px;
+            margin-right: 8px;
+            white-space: nowrap;
+            border-radius: 20px;
+            background: #f0f0f0;
+            color: #666;
+        }
+        .category-tab.active {
+            background: #e83e8c;
+            color: #fff;
+        }
+        .post-card {
+            background: #fff;
+            border-radius: 12px;
+            margin: 16px;
+            padding: 16px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .post-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 20px;
+            background-color: #eee;
+            margin-right: 12px;
+        }
+        .user-info {
+            flex: 1;
+        }
+        .username {
+            font-weight: bold;
+            color: #333;
+        }
+        .post-time {
+            font-size: 12px;
+            color: #999;
+        }
+        .post-content {
+            margin-bottom: 12px;
+            color: #333;
+        }
+        .post-images {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+        .post-image {
+            height: 100px;
+            background-color: #eee;
+            border-radius: 8px;
+            background-size: cover;
+            background-position: center;
+        }
+        .post-actions {
+            display: flex;
+            justify-content: space-around;
+            color: #666;
+        }
+        .action-item {
+            display: flex;
+            align-items: center;
+        }
+        .action-item i {
+            margin-right: 4px;
+        }
+        .fab-button {
+            position: fixed;
+            right: 16px;
+            bottom: 100px;
+            width: 56px;
+            height: 56px;
+            border-radius: 28px;
+            background: #e83e8c;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+    <!-- iOS状态栏 -->
+    <div class="status-bar">
+        <div>9:41</div>
+        <div class="flex space-x-2">
+            <i class="fas fa-signal"></i>
+            <i class="fas fa-wifi"></i>
+            <i class="fas fa-battery-full"></i>
+        </div>
+    </div>
+
+    <!-- 主要内容区域 -->
+    <div class="content">
+        <!-- 搜索栏 -->
+        <div class="p-4">
+            <div class="bg-white rounded-full flex items-center px-4 py-2 shadow-sm">
+                <i class="fas fa-search text-gray-400 mr-2"></i>
+                <input type="text" placeholder="搜索社区内容..." class="flex-1 outline-none">
+            </div>
+        </div>
+
+        <!-- 分类标签 -->
+        <div class="category-tabs">
+            <div class="category-tab active">推荐</div>
+            <div class="category-tab">社区活动</div>
+            <div class="category-tab">旗袍文化</div>
+            <div class="category-tab">分享美丽</div>
+            <div class="category-tab">达人推荐</div>
+        </div>
+
+        <!-- 帖子列表 -->
+        <div class="post-card">
+            <div class="post-header">
+                <div class="avatar"></div>
+                <div class="user-info">
+                    <div class="username">旗袍爱好者</div>
+                    <div class="post-time">2小时前</div>
+                </div>
+            </div>
+            <div class="post-content">
+                今天分享我的新旗袍，传统刺绣工艺，真的太美了！大家觉得怎么样？
+            </div>
+            <div class="post-images">
+                <div class="post-image" style="background-image: url('images/社区1.jpg')"></div>
+                <div class="post-image" style="background-image: url('images/社区2.jpg')"></div>
+                <div class="post-image" style="background-image: url('images/社区3.jpg')"></div>
+            </div>
+            <div class="post-actions">
+                <div class="action-item">
+                    <i class="far fa-heart"></i>
+                    <span>128</span>
+                </div>
+                <div class="action-item">
+                    <i class="far fa-comment"></i>
+                    <span>32</span>
+                </div>
+                <div class="action-item">
+                    <i class="far fa-share-square"></i>
+                    <span>分享</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="post-card">
+            <div class="post-header">
+                <div class="avatar"></div>
+                <div class="user-info">
+                    <div class="username">旗袍设计师</div>
+                    <div class="post-time">昨天</div>
+                </div>
+            </div>
+            <div class="post-content">
+                分享一些旗袍搭配的小技巧，如何选择合适的配饰和发型，让整体造型更加完美！
+            </div>
+            <div class="post-images">
+                <div class="post-image" style="background-image: url('images/社区4.jpg')"></div>
+                <div class="post-image" style="background-image: url('images/社区5.jpg')"></div>
+                <div class="post-image" style="background-image: url('images/社区6.jpg')"></div>
+            </div>
+            <div class="post-actions">
+                <div class="action-item">
+                    <i class="far fa-heart"></i>
+                    <span>256</span>
+                </div>
+                <div class="action-item">
+                    <i class="far fa-comment"></i>
+                    <span>48</span>
+                </div>
+                <div class="action-item">
+                    <i class="far fa-share-square"></i>
+                    <span>分享</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 发布按钮 -->
+    <div class="fab-button">
+        <i class="fas fa-plus"></i>
+    </div>
+
+    <!-- 底部导航栏 -->
+    <div class="tab-bar">
+        <div class="tab-item">
+            <i class="fas fa-home"></i>
+            <span>首页</span>
+        </div>
+        <div class="tab-item">
+            <i class="fas fa-store"></i>
+            <span>商店</span>
+        </div>
+        <div class="tab-item active">
+            <i class="fas fa-users"></i>
+            <span>社区</span>
+        </div>
+        <div class="tab-item">
+            <i class="fas fa-user"></i>
+            <span>我的</span>
+        </div>
+    </div>
+</body>
+</html> 
